@@ -35,12 +35,11 @@ jobs:
       
       - name: Setup Environment (PR)  
         if: ${{ github.event_name == 'pull_request' }}  
-        id: vars
         run: |  
           echo "short_sha=$(git rev-parse --short ${{ github.event.pull_request.head.sha }})" >> $GITHUB_ENV
+          
       - name: Setup Environment (Push)  
         if: ${{ github.event_name == 'push' }}  
-        id: vars
         run: |  
            echo "short_sha=$(git rev-parse --short $GITHUB_SHA }})" >> $GITHUB_ENV
         
